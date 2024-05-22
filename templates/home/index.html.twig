@@ -1,0 +1,30 @@
+{# templates/home/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block body %}
+<h1>Cheater list</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Pseudo</th>
+            <th>Créer par</th>
+            <th>Date de création</th>
+            <th>Nombres de vues</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cheater in cheaters %}
+            <tr>
+                <td>{{ cheater.id }}</td>
+                <td>{{ cheater.pseudo }}</td>
+                <td>{{ cheater.createdBy }}</td>
+                <td>{{ cheater.date|date('Y-m-d') }}</td> {# Formatage de la date #}
+                <td>{{ cheater.numberOfViews }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
